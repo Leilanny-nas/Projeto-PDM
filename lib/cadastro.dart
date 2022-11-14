@@ -1,15 +1,18 @@
 import 'package:brasil_fields/brasil_fields.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 
-class Login extends StatefulWidget {
-  const Login({super.key});
+class Cadastro extends StatefulWidget {
+  const Cadastro({super.key});
 
   @override
-  _LoginState createState() => _LoginState();
+  _Cadastro createState() => _Cadastro();
 }
 
-class _LoginState extends State<Login> {
+class _Cadastro extends State<Cadastro> {
+  TextEditingController _cpf = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,6 +35,7 @@ class _LoginState extends State<Login> {
                     )),
               ),
               TextFormField(
+                controller: _cpf,
                 autofocus: true,
                 style: TextStyle(color: Colors.purple, fontSize: 20),
                 decoration: const InputDecoration(
@@ -41,6 +45,34 @@ class _LoginState extends State<Login> {
                 inputFormatters: [
                   FilteringTextInputFormatter.digitsOnly,
                   CpfInputFormatter(),
+                ],
+              ),
+              Divider(),
+              TextFormField(
+                autofocus: true,
+                keyboardType: TextInputType.text,
+                style: TextStyle(color: Colors.purple, fontSize: 20),
+                decoration: InputDecoration(
+                    icon: Icon(Icons.email),
+                    labelText: "Email",
+                    labelStyle: TextStyle(
+                      color: Colors.white,
+                    )),
+              ),
+              Divider(),
+              TextFormField(
+                autofocus: true,
+                keyboardType: TextInputType.text,
+                style: TextStyle(color: Colors.purple, fontSize: 20),
+                decoration: InputDecoration(
+                    icon: Icon(Icons.phone),
+                    labelText: "Telefone",
+                    labelStyle: TextStyle(
+                      color: Colors.white,
+                    )),
+                inputFormatters: [
+                  FilteringTextInputFormatter.digitsOnly,
+                  TelefoneInputFormatter(),
                 ],
               ),
               Divider(),
@@ -56,32 +88,16 @@ class _LoginState extends State<Login> {
                       color: Colors.white,
                     )),
               ),
-              Container(
-                height: 40,
-                alignment: Alignment.centerRight,
-                child: TextButton(
-                  child: Text(
-                    "Recuperar Senha",
-                    textAlign: TextAlign.right,
-                  ),
-                  onPressed: () {
-                    //Navigator.push(context,
-                    //MaterialPageRoute(
-                    //  builder: (context) => RecuperarSenha(),
-                    //),
-                    //);
-                  },
-                ),
-              ),
               const Divider(),
               ButtonTheme(
                 height: 60,
                 child: ElevatedButton(
                   style: ButtonStyle(
-                      minimumSize: MaterialStateProperty.all(Size(10, 50))),
-                  onPressed: () => {},
+                    minimumSize: MaterialStateProperty.all(Size(10, 50)),
+                  ),
+                  onPressed: () {},
                   child: const Text(
-                    "Entrar",
+                    "Criar conta",
                     style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,

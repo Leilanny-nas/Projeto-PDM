@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'login.dart';
+import 'package:uru_bank/index.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,9 +11,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Tela de Login',
+      title: 'Início',
       theme: ThemeData(primarySwatch: Colors.purple),
-      home: const Login(),
+      home: const Index(),
     );
   }
 }
