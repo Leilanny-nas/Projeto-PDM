@@ -1,16 +1,14 @@
-import 'package:brasil_fields/brasil_fields.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'RecuperarContaStepI.dart';
+import 'RecuperarContaStepII.dart';
 
-class Login extends StatefulWidget {
-  const Login({super.key});
+class RecuperarContaStepI extends StatefulWidget {
+  const RecuperarContaStepI({super.key});
 
   @override
-  _LoginState createState() => _LoginState();
+  _RecuperarContaStepI createState() => _RecuperarContaStepI();
 }
 
-class _LoginState extends State<Login> {
+class _RecuperarContaStepI extends State<RecuperarContaStepI> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,58 +30,35 @@ class _LoginState extends State<Login> {
                       color: Colors.white,
                     )),
               ),
-              TextFormField(
-                autofocus: true,
-                style: TextStyle(color: Colors.purple, fontSize: 20),
-                decoration: const InputDecoration(
-                    icon: Icon(Icons.person),
-                    labelText: "CPF",
-                    labelStyle: TextStyle(color: Colors.white)),
-                inputFormatters: [
-                  FilteringTextInputFormatter.digitsOnly,
-                  CpfInputFormatter(),
-                ],
-              ),
               Divider(),
               TextFormField(
                 autofocus: true,
-                obscureText: true,
                 keyboardType: TextInputType.text,
                 style: TextStyle(color: Colors.purple, fontSize: 20),
                 decoration: InputDecoration(
-                    icon: Icon(Icons.visibility_off_rounded),
-                    labelText: "Senha",
+                    icon: Icon(Icons.email),
+                    labelText: "Email",
                     labelStyle: TextStyle(
                       color: Colors.white,
                     )),
-              ),
-              Container(
-                height: 40,
-                alignment: Alignment.centerRight,
-                child: TextButton(
-                  child: Text(
-                    "Recuperar Senha",
-                    textAlign: TextAlign.right,
-                  ),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => RecuperarContaStepI(),
-                      ),
-                    );
-                  },
-                ),
               ),
               const Divider(),
               ButtonTheme(
                 height: 60,
                 child: ElevatedButton(
                   style: ButtonStyle(
-                      minimumSize: MaterialStateProperty.all(Size(10, 50))),
-                  onPressed: () => {},
+                    minimumSize: MaterialStateProperty.all(Size(10, 50)),
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => RecuperarContaStepII(),
+                      ),
+                    );
+                  },
                   child: const Text(
-                    "Entrar",
+                    "Enviar código",
                     style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
