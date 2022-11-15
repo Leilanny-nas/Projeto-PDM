@@ -21,7 +21,7 @@ class _IndexState extends State<Index> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Center(
+              const Center(
                 heightFactor: 2,
                 child: Text('UruBank',
                     textDirection: TextDirection.ltr,
@@ -33,14 +33,16 @@ class _IndexState extends State<Index> {
               ),
               const Divider(),
               ButtonTheme(
-                height: 60,
+                height: 38,
                 child: ElevatedButton(
                   style: ButtonStyle(
-                    minimumSize: MaterialStateProperty.all(Size(10, 60)),
+                    minimumSize: MaterialStateProperty.all(const Size(10, 60)),
                   ),
                   onPressed: () => {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: ((context) => Login()))),
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: ((context) => const Login()))),
                   },
                   child: const Text(
                     "Login",
@@ -52,13 +54,16 @@ class _IndexState extends State<Index> {
               const Divider(),
               const Divider(),
               ButtonTheme(
-                height: 60,
+                height: 38,
                 child: ElevatedButton(
                   style: ButtonStyle(
-                      minimumSize: MaterialStateProperty.all(Size(10, 60))),
+                      minimumSize:
+                          MaterialStateProperty.all(const Size(10, 60))),
                   onPressed: () => {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: ((context) => Cadastro()))),
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: ((context) => const Cadastro()))),
                   },
                   child: const Text(
                     "Criar conta",
