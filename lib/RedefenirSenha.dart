@@ -20,7 +20,7 @@ class _RedefenirSenha extends State<RedefenirSenha> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Center(
+              const Center(
                 heightFactor: 2,
                 child: Text('UruBank',
                     textDirection: TextDirection.ltr,
@@ -30,26 +30,26 @@ class _RedefenirSenha extends State<RedefenirSenha> {
                       color: Colors.white,
                     )),
               ),
-              Divider(),
+              const Divider(),
               TextFormField(
                 autofocus: true,
                 obscureText: true,
                 keyboardType: TextInputType.text,
-                style: TextStyle(color: Colors.purple, fontSize: 20),
-                decoration: InputDecoration(
+                style: const TextStyle(color: Colors.purple, fontSize: 20),
+                decoration: const InputDecoration(
                     icon: Icon(Icons.visibility_off_rounded),
                     labelText: "Nova Senha",
                     labelStyle: TextStyle(
                       color: Colors.white,
                     )),
               ),
-              Divider(),
+              const Divider(),
               TextFormField(
                 autofocus: true,
                 obscureText: true,
                 keyboardType: TextInputType.text,
-                style: TextStyle(color: Colors.purple, fontSize: 20),
-                decoration: InputDecoration(
+                style: const TextStyle(color: Colors.purple, fontSize: 20),
+                decoration: const InputDecoration(
                     icon: Icon(Icons.visibility_off_rounded),
                     labelText: "Repetir Senha",
                     labelStyle: TextStyle(
@@ -61,13 +61,13 @@ class _RedefenirSenha extends State<RedefenirSenha> {
                 height: 60,
                 child: ElevatedButton(
                   style: ButtonStyle(
-                    minimumSize: MaterialStateProperty.all(Size(10, 50)),
+                    minimumSize: MaterialStateProperty.all(const Size(10, 50)),
                   ),
                   onPressed: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => Login(),
+                        builder: (context) => const Login(),
                       ),
                     );
                   },
