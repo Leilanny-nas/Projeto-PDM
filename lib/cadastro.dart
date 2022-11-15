@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
+import 'login.dart';
+
 class Cadastro extends StatefulWidget {
   const Cadastro({super.key});
 
@@ -40,7 +42,34 @@ class _Cadastro extends State<Cadastro> {
                 style: TextStyle(color: Colors.purple, fontSize: 20),
                 decoration: const InputDecoration(
                     icon: Icon(Icons.person),
+                    labelText: "Nome completo",
+                    labelStyle: TextStyle(color: Colors.white)),
+                inputFormatters: [
+                  FilteringTextInputFormatter.digitsOnly,
+                  CpfInputFormatter(),
+                ],
+              ),
+              Divider(),
+              TextFormField(
+                controller: _cpf,
+                autofocus: true,
+                style: TextStyle(color: Colors.purple, fontSize: 20),
+                decoration: const InputDecoration(
+                    icon: Icon(Icons.person),
                     labelText: "CPF",
+                    labelStyle: TextStyle(color: Colors.white)),
+                inputFormatters: [
+                  FilteringTextInputFormatter.digitsOnly,
+                  CpfInputFormatter(),
+                ],
+              ),
+              TextFormField(
+                controller: _cpf,
+                autofocus: true,
+                style: TextStyle(color: Colors.purple, fontSize: 20),
+                decoration: const InputDecoration(
+                    icon: Icon(Icons.calendar_month),
+                    labelText: "Data de nascimento",
                     labelStyle: TextStyle(color: Colors.white)),
                 inputFormatters: [
                   FilteringTextInputFormatter.digitsOnly,
@@ -88,6 +117,19 @@ class _Cadastro extends State<Cadastro> {
                       color: Colors.white,
                     )),
               ),
+              Divider(),
+              TextFormField(
+                autofocus: true,
+                obscureText: true,
+                keyboardType: TextInputType.text,
+                style: TextStyle(color: Colors.purple, fontSize: 20),
+                decoration: InputDecoration(
+                    icon: Icon(Icons.visibility_off_rounded),
+                    labelText: "Confirmar senha",
+                    labelStyle: TextStyle(
+                      color: Colors.white,
+                    )),
+              ),
               const Divider(),
               ButtonTheme(
                 height: 60,
@@ -95,7 +137,14 @@ class _Cadastro extends State<Cadastro> {
                   style: ButtonStyle(
                     minimumSize: MaterialStateProperty.all(Size(10, 50)),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => Login(),
+                      ),
+                    );
+                  },
                   child: const Text(
                     "Criar conta",
                     style: TextStyle(
