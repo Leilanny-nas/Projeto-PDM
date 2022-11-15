@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:uru_bank/app_bar_custom.dart';
 import 'RedefenirSenha.dart';
 
 class RecuperarContaStepII extends StatefulWidget {
@@ -12,6 +13,7 @@ class _RecuperarContaStepII extends State<RecuperarContaStepII> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBarCustom(),
       backgroundColor: const Color.fromRGBO(20, 24, 36, 1),
       body: Padding(
         padding: const EdgeInsets.all(10.0),
@@ -20,7 +22,7 @@ class _RecuperarContaStepII extends State<RecuperarContaStepII> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Center(
+              const Center(
                 heightFactor: 2,
                 child: Text('UruBank',
                     textDirection: TextDirection.ltr,
@@ -30,12 +32,12 @@ class _RecuperarContaStepII extends State<RecuperarContaStepII> {
                       color: Colors.white,
                     )),
               ),
-              Divider(),
+              const Divider(),
               TextFormField(
                 autofocus: true,
                 keyboardType: TextInputType.text,
-                style: TextStyle(color: Colors.purple, fontSize: 20),
-                decoration: InputDecoration(
+                style: const TextStyle(color: Colors.purple, fontSize: 20),
+                decoration: const InputDecoration(
                     icon: Icon(Icons.email),
                     labelText: "Insira o código enviado",
                     labelStyle: TextStyle(
@@ -47,13 +49,13 @@ class _RecuperarContaStepII extends State<RecuperarContaStepII> {
                 height: 60,
                 child: ElevatedButton(
                   style: ButtonStyle(
-                    minimumSize: MaterialStateProperty.all(Size(10, 50)),
+                    minimumSize: MaterialStateProperty.all(const Size(10, 50)),
                   ),
                   onPressed: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => RedefenirSenha(),
+                        builder: (context) => const RedefenirSenha(),
                       ),
                     );
                   },
