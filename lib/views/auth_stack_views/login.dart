@@ -1,9 +1,9 @@
 import 'package:brasil_fields/brasil_fields.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:uru_bank/app_bar_custom.dart';
+import 'package:uru_bank/routes/app_routes.dart';
+import 'package:uru_bank/views/main_stack_views/home_view.dart';
 import 'RecuperarContaStepI.dart';
-import 'home_page.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -16,7 +16,6 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBarCustom(),
       backgroundColor: const Color.fromRGBO(20, 24, 36, 1),
       body: Padding(
         padding: const EdgeInsets.all(10.0),
@@ -68,10 +67,11 @@ class _LoginState extends State<Login> {
                       minimumSize:
                           MaterialStateProperty.all(const Size(10, 50))),
                   onPressed: () => {
-                    Navigator.push(
-                        context,
+                    Navigator.pushAndRemoveUntil(context, 
                         MaterialPageRoute(
-                            builder: ((context) => const HomePage()))),
+                            builder: (ctx) => const Home(),),
+                            ModalRoute.withName(AppRoutes.home),)
+                    
                   },
                   child: const Text(
                     "Entrar",

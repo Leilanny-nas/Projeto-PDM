@@ -1,23 +1,18 @@
 import 'package:brasil_fields/brasil_fields.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:get/get.dart';
-
 import 'package:flutter/scheduler.dart';
-import 'package:get/get_navigation/get_navigation.dart';
-import 'app_bar_custom.dart';
-import 'home_page.dart';
+import 'package:flutter/services.dart';
+import 'package:uru_bank/routes/app_routes.dart';
+import 'package:uru_bank/views/main_stack_views/home_view.dart';
 
-import 'login.dart';
-
-class Cadastro extends StatefulWidget {
-  const Cadastro({super.key});
+class Signup extends StatefulWidget {
+  const Signup({super.key});
 
   @override
-  _Cadastro createState() => _Cadastro();
+  _Signup createState() => _Signup();
 }
 
-class _Cadastro extends State<Cadastro> {
+class _Signup extends State<Signup> {
   TextEditingController _cpf = TextEditingController();
 
   @override
@@ -122,13 +117,13 @@ class _Cadastro extends State<Cadastro> {
                       color: Colors.white,
                     )),
               ),
-              Divider(),
+              const Divider(),
               TextFormField(
                 autofocus: true,
                 obscureText: true,
                 keyboardType: TextInputType.text,
-                style: TextStyle(color: Colors.purple, fontSize: 20),
-                decoration: InputDecoration(
+                style: const TextStyle(color: Colors.purple, fontSize: 20),
+                decoration: const InputDecoration(
                     icon: Icon(Icons.visibility_off_rounded),
                     labelText: "Confirmar senha",
                     labelStyle: TextStyle(
@@ -155,15 +150,13 @@ class _Cadastro extends State<Cadastro> {
                 height: 60,
                 child: ElevatedButton(
                   style: ButtonStyle(
-                    minimumSize: MaterialStateProperty.all(Size(10, 50)),
+                    minimumSize: MaterialStateProperty.all(const Size(10, 50)),
                   ),
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => HomePage(),
-                      ),
-                    );
+                   Navigator.pushAndRemoveUntil(context, 
+                        MaterialPageRoute(
+                            builder: (ctx) => const Home(),),
+                            ModalRoute.withName(AppRoutes.home),);
                   },
                   child: const Text(
                     "Criar conta",

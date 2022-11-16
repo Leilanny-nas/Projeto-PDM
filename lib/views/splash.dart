@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:uru_bank/app_bar_custom.dart';
-import 'RedefenirSenha.dart';
+import 'package:uru_bank/routes/app_routes.dart';
+import 'package:uru_bank/views/auth_stack_views/login.dart';
+import 'package:uru_bank/views/auth_stack_views/signup.dart';
 
-class RecuperarContaStepII extends StatefulWidget {
-  const RecuperarContaStepII({super.key});
+class Splash extends StatefulWidget {
+  const Splash({super.key});
 
   @override
-  _RecuperarContaStepII createState() => _RecuperarContaStepII();
+  _SplashState createState() => _SplashState();
 }
 
-class _RecuperarContaStepII extends State<RecuperarContaStepII> {
+class _SplashState extends State<Splash> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBarCustom(),
       backgroundColor: const Color.fromRGBO(20, 24, 36, 1),
       body: Padding(
         padding: const EdgeInsets.all(10.0),
@@ -33,41 +33,39 @@ class _RecuperarContaStepII extends State<RecuperarContaStepII> {
                     )),
               ),
               const Divider(),
-              TextFormField(
-                autofocus: true,
-                keyboardType: TextInputType.text,
-                style: const TextStyle(color: Colors.purple, fontSize: 20),
-                decoration: const InputDecoration(
-                    icon: Icon(Icons.email),
-                    labelText: "Insira o código enviado",
-                    labelStyle: TextStyle(
-                      color: Colors.white,
-                    )),
-              ),
-              const Divider(),
               ButtonTheme(
-                height: 60,
+                height: 38,
                 child: ElevatedButton(
                   style: ButtonStyle(
-                    minimumSize: MaterialStateProperty.all(const Size(10, 50)),
+                    minimumSize: MaterialStateProperty.all(const Size(10, 60)),
                   ),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const RedefenirSenha(),
-                      ),
-                    );
-                  },
+                  onPressed: () => Navigator.pushNamed(context, AppRoutes.login),
                   child: const Text(
-                    "Próximo",
+                    "Login",
+                    style: TextStyle(
+                        color: Colors.white, fontWeight: FontWeight.bold),
+                  ),
+                ),
+              ),
+              const Divider(),
+              const Divider(),
+              ButtonTheme(
+                height: 38,
+                child: ElevatedButton(
+                  style: ButtonStyle(
+                      minimumSize:
+                          MaterialStateProperty.all(const Size(10, 60))),
+                  onPressed: () =>
+                    Navigator.pushNamed(context, AppRoutes.signup),
+                  child: const Text(
+                    "Criar conta",
                     style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
-              )
+              ),
             ],
           ),
         ),

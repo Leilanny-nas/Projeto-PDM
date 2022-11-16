@@ -1,19 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:uru_bank/app_bar_custom.dart';
-import 'RecuperarContaStepII.dart';
+import 'RedefenirSenha.dart';
 
-class RecuperarContaStepI extends StatefulWidget {
-  const RecuperarContaStepI({super.key});
+class RecuperarContaStepII extends StatefulWidget {
+  const RecuperarContaStepII({super.key});
 
   @override
-  _RecuperarContaStepI createState() => _RecuperarContaStepI();
+  _RecuperarContaStepII createState() => _RecuperarContaStepII();
 }
 
-class _RecuperarContaStepI extends State<RecuperarContaStepI> {
+class _RecuperarContaStepII extends State<RecuperarContaStepII> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBarCustom(),
       backgroundColor: const Color.fromRGBO(20, 24, 36, 1),
       body: Padding(
         padding: const EdgeInsets.all(10.0),
@@ -39,7 +37,7 @@ class _RecuperarContaStepI extends State<RecuperarContaStepI> {
                 style: const TextStyle(color: Colors.purple, fontSize: 20),
                 decoration: const InputDecoration(
                     icon: Icon(Icons.email),
-                    labelText: "Email",
+                    labelText: "Insira o código enviado",
                     labelStyle: TextStyle(
                       color: Colors.white,
                     )),
@@ -55,12 +53,12 @@ class _RecuperarContaStepI extends State<RecuperarContaStepI> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const RecuperarContaStepII(),
+                        builder: (context) => const RedefenirSenha(),
                       ),
                     );
                   },
                   child: const Text(
-                    "Enviar código",
+                    "Próximo",
                     style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,

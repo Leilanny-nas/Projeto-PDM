@@ -1,23 +1,18 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:uru_bank/app_bar_custom.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class Home extends StatefulWidget {
+  const Home({super.key});
 
   @override
-  State<HomePage> createState() => _HomePage();
+  State<Home> createState() => _Home();
 }
 
-class _HomePage extends State<HomePage> {
+class _Home extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      drawer: Drawer(),
+      drawer: const Drawer(),
       backgroundColor: const Color.fromRGBO(20, 24, 36, 1),
       body: Padding(
         padding: const EdgeInsets.all(10.0),
@@ -38,7 +33,7 @@ class _HomePage extends State<HomePage> {
               ),
               Column(
                 children: [
-                  Text("Conta",
+                  const Text("Conta",
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.normal,

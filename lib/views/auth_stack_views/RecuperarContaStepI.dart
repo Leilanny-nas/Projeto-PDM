@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:uru_bank/cadastro.dart';
-import 'login.dart';
+import 'RecuperarContaStepII.dart';
 
-class Index extends StatefulWidget {
-  const Index({super.key});
+class RecuperarContaStepI extends StatefulWidget {
+  const RecuperarContaStepI({super.key});
 
   @override
-  _IndexState createState() => _IndexState();
+  _RecuperarContaStepI createState() => _RecuperarContaStepI();
 }
 
-class _IndexState extends State<Index> {
+class _RecuperarContaStepI extends State<RecuperarContaStepI> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,48 +31,41 @@ class _IndexState extends State<Index> {
                     )),
               ),
               const Divider(),
-              ButtonTheme(
-                height: 38,
-                child: ElevatedButton(
-                  style: ButtonStyle(
-                    minimumSize: MaterialStateProperty.all(const Size(10, 60)),
-                  ),
-                  onPressed: () => {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: ((context) => const Login()))),
-                  },
-                  child: const Text(
-                    "Login",
-                    style: TextStyle(
-                        color: Colors.white, fontWeight: FontWeight.bold),
-                  ),
-                ),
+              TextFormField(
+                autofocus: true,
+                keyboardType: TextInputType.text,
+                style: const TextStyle(color: Colors.purple, fontSize: 20),
+                decoration: const InputDecoration(
+                    icon: Icon(Icons.email),
+                    labelText: "Email",
+                    labelStyle: TextStyle(
+                      color: Colors.white,
+                    )),
               ),
               const Divider(),
-              const Divider(),
               ButtonTheme(
-                height: 38,
+                height: 60,
                 child: ElevatedButton(
                   style: ButtonStyle(
-                      minimumSize:
-                          MaterialStateProperty.all(const Size(10, 60))),
-                  onPressed: () => {
+                    minimumSize: MaterialStateProperty.all(const Size(10, 50)),
+                  ),
+                  onPressed: () {
                     Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: ((context) => const Cadastro()))),
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const RecuperarContaStepII(),
+                      ),
+                    );
                   },
                   child: const Text(
-                    "Criar conta",
+                    "Enviar código",
                     style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
-              ),
+              )
             ],
           ),
         ),
