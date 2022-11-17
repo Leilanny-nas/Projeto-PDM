@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:uru_bank/routes/app_routes.dart';
-import 'package:uru_bank/views/auth_stack_views/login.dart';
-import 'package:uru_bank/views/auth_stack_views/signup.dart';
 
 class Splash extends StatefulWidget {
   const Splash({super.key});
@@ -22,6 +20,11 @@ class _SplashState extends State<Splash> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
+              Container(
+                width: 200,
+                height: 200,
+                child: Image.asset('assets/images/logo.png'),
+              ),
               const Center(
                 heightFactor: 2,
                 child: Text('UruBank',
@@ -39,7 +42,8 @@ class _SplashState extends State<Splash> {
                   style: ButtonStyle(
                     minimumSize: MaterialStateProperty.all(const Size(10, 60)),
                   ),
-                  onPressed: () => Navigator.pushNamed(context, AppRoutes.login),
+                  onPressed: () =>
+                      Navigator.pushNamed(context, AppRoutes.login),
                   child: const Text(
                     "Login",
                     style: TextStyle(
@@ -56,7 +60,7 @@ class _SplashState extends State<Splash> {
                       minimumSize:
                           MaterialStateProperty.all(const Size(10, 60))),
                   onPressed: () =>
-                    Navigator.pushNamed(context, AppRoutes.signup),
+                      Navigator.pushNamed(context, AppRoutes.signup),
                   child: const Text(
                     "Criar conta",
                     style: TextStyle(

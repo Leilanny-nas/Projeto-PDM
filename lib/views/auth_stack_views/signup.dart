@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:uru_bank/routes/app_routes.dart';
-import 'package:uru_bank/views/main_stack_views/home_view.dart';
+
+import 'signupsucces.dart';
 
 class Signup extends StatefulWidget {
   const Signup({super.key});
@@ -26,6 +27,11 @@ class _Signup extends State<Signup> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
+              Container(
+                width: 100,
+                height: 100,
+                child: Image.asset('assets/images/logo.png'),
+              ),
               Center(
                 heightFactor: 2,
                 child: Text('UruBank',
@@ -153,10 +159,13 @@ class _Signup extends State<Signup> {
                     minimumSize: MaterialStateProperty.all(const Size(10, 50)),
                   ),
                   onPressed: () {
-                   Navigator.pushAndRemoveUntil(context, 
-                        MaterialPageRoute(
-                            builder: (ctx) => const Home(),),
-                            ModalRoute.withName(AppRoutes.home),);
+                    Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(
+                        builder: (ctx) => const Message(),
+                      ),
+                      ModalRoute.withName(AppRoutes.home),
+                    );
                   },
                   child: const Text(
                     "Criar conta",

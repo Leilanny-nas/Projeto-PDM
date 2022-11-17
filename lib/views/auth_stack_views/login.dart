@@ -24,6 +24,11 @@ class _LoginState extends State<Login> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
+              Container(
+                width: 100,
+                height: 100,
+                child: Image.asset('assets/images/logo.png'),
+              ),
               const Center(
                 heightFactor: 2,
                 child: Text('UruBank',
@@ -67,11 +72,13 @@ class _LoginState extends State<Login> {
                       minimumSize:
                           MaterialStateProperty.all(const Size(10, 50))),
                   onPressed: () => {
-                    Navigator.pushAndRemoveUntil(context, 
-                        MaterialPageRoute(
-                            builder: (ctx) => const Home(),),
-                            ModalRoute.withName(AppRoutes.home),)
-                    
+                    Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(
+                        builder: (ctx) => const Home(),
+                      ),
+                      ModalRoute.withName(AppRoutes.home),
+                    )
                   },
                   child: const Text(
                     "Entrar",

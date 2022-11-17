@@ -1,4 +1,7 @@
+import 'dart:js_util';
+
 import 'package:flutter/material.dart';
+import 'package:uru_bank/routes/app_routes.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -12,7 +15,77 @@ class _Home extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      drawer: const Drawer(),
+      drawer: Drawer(
+        backgroundColor: const Color.fromRGBO(20, 24, 36, 1),
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            const DrawerHeader(
+                decoration: BoxDecoration(
+                  color: const Color.fromRGBO(20, 24, 36, 1),
+                ),
+                child: Text('', textAlign: TextAlign.center)),
+            ListTile(
+              leading: Icon(Icons.person),
+              iconColor: Colors.white,
+              title: const Text('Editar perfil'),
+              textColor: Colors.white,
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            const Divider(),
+            ListTile(
+              leading: Icon(Icons.lock_person),
+              iconColor: Colors.white,
+              title: const Text('Configurações'),
+              textColor: Colors.white,
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            const Divider(),
+            const Divider(),
+            const Divider(),
+            const Divider(),
+            const Divider(),
+            const Divider(),
+            const Divider(),
+            const Divider(),
+            const Divider(),
+            const Divider(),
+            const Divider(),
+            const Divider(),
+            const Divider(),
+            const Divider(),
+            const Divider(),
+            const Divider(),
+            const Divider(),
+            const Divider(),
+            const Divider(),
+            const Divider(),
+            const Divider(),
+            const Divider(),
+            const Divider(),
+            const Divider(),
+            const Divider(),
+            const Divider(),
+            const Divider(),
+            const Divider(),
+            const Divider(),
+            const Divider(),
+            ListTile(
+              leading: Icon(Icons.logout),
+              iconColor: Colors.white,
+              title: const Text('Sair'),
+              textColor: Colors.white,
+              onTap: () {
+                Navigator.pushNamed(context, AppRoutes.login);
+              },
+            ),
+          ],
+        ),
+      ),
       backgroundColor: const Color.fromRGBO(20, 24, 36, 1),
       body: Padding(
         padding: const EdgeInsets.all(10.0),
