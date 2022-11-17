@@ -2,6 +2,7 @@ import 'package:brasil_fields/brasil_fields.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 import 'package:uru_bank/routes/app_routes.dart';
 
 import 'signupsucces.dart';
@@ -15,6 +16,8 @@ class Signup extends StatefulWidget {
 
 class _Signup extends State<Signup> {
   TextEditingController _cpf = TextEditingController();
+
+  bool aceitoTermos = false;
 
   @override
   Widget build(BuildContext context) {
@@ -137,19 +140,25 @@ class _Signup extends State<Signup> {
                     )),
               ),
               const Divider(),
-              CheckboxListTile(
-                title: const Text(
-                  'Li e concordo com os Termos e Condições e a Política de Privacidade',
-                  style: TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.normal),
-                  selectionColor: Colors.white,
-                ),
-                value: timeDilation != 1.0,
-                onChanged: (bool? value) {
-                  setState(() {
-                    timeDilation = value! ? 10.0 : 1.0;
-                  });
-                },
+              Row(
+                children: [
+                  Checkbox(
+                    side: BorderSide(color: Colors.white),
+                    value: aceitoTermos,
+                    onChanged: (bool) {
+                      setState(() {
+                        aceitoTermos = !aceitoTermos;
+                      });
+                    },
+                  ),
+                  const Expanded(
+                    child: Text(
+                        'Li e concordo com os termos de condições e politicas de privacidade',
+                        style: TextStyle(
+                          color: Colors.white,
+                        )),
+                  ),
+                ],
               ),
               const Divider(),
               ButtonTheme(
