@@ -1,5 +1,3 @@
-import 'dart:js_util';
-
 import 'package:flutter/material.dart';
 import 'package:uru_bank/routes/app_routes.dart';
 
@@ -22,11 +20,11 @@ class _Home extends State<Home> {
           children: [
             const DrawerHeader(
                 decoration: BoxDecoration(
-                  color: const Color.fromRGBO(20, 24, 36, 1),
+                  color: Color.fromRGBO(20, 24, 36, 1),
                 ),
                 child: Text('', textAlign: TextAlign.center)),
             ListTile(
-              leading: Icon(Icons.person),
+              leading: const Icon(Icons.person),
               iconColor: Colors.white,
               title: const Text('Editar perfil'),
               textColor: Colors.white,
@@ -36,7 +34,7 @@ class _Home extends State<Home> {
             ),
             const Divider(),
             ListTile(
-              leading: Icon(Icons.lock_person),
+              leading: const Icon(Icons.lock_person),
               iconColor: Colors.white,
               title: const Text('Configurações'),
               textColor: Colors.white,
@@ -45,37 +43,8 @@ class _Home extends State<Home> {
               },
             ),
             const Divider(),
-            const Divider(),
-            const Divider(),
-            const Divider(),
-            const Divider(),
-            const Divider(),
-            const Divider(),
-            const Divider(),
-            const Divider(),
-            const Divider(),
-            const Divider(),
-            const Divider(),
-            const Divider(),
-            const Divider(),
-            const Divider(),
-            const Divider(),
-            const Divider(),
-            const Divider(),
-            const Divider(),
-            const Divider(),
-            const Divider(),
-            const Divider(),
-            const Divider(),
-            const Divider(),
-            const Divider(),
-            const Divider(),
-            const Divider(),
-            const Divider(),
-            const Divider(),
-            const Divider(),
             ListTile(
-              leading: Icon(Icons.logout),
+              leading: const Icon(Icons.logout),
               iconColor: Colors.white,
               title: const Text('Sair'),
               textColor: Colors.white,
@@ -94,15 +63,20 @@ class _Home extends State<Home> {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
-              const Center(
-                heightFactor: 2,
-                child: Text('Olá, Username!',
-                    textDirection: TextDirection.ltr,
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.normal,
-                      color: Colors.white,
-                    )),
+              Row(
+                children: [
+                  Container(
+                    // heightFactor: 2,
+                    child: Text('Olá, Username!',
+                        textDirection: TextDirection.ltr,
+                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.normal,
+                          color: Colors.white,
+                        )),
+                  ),
+                ],
               ),
               Column(
                 children: [
