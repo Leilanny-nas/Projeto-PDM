@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:uru_bank/routes/app_routes.dart';
 import 'package:uru_bank/views/main_stack_views/home_view.dart';
-import 'RecuperarContaStepI.dart';
+import 'reset_accountI.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -24,7 +24,7 @@ class _LoginState extends State<Login> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Container(
+              SizedBox(
                 width: 100,
                 height: 100,
                 child: Image.asset('assets/images/logo.png'),
