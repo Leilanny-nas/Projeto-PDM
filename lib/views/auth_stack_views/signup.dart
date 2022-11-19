@@ -30,12 +30,12 @@ class _Signup extends State<Signup> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Container(
+              SizedBox(
                 width: 100,
                 height: 100,
                 child: Image.asset('assets/images/logo.png'),
               ),
-              Center(
+              const Center(
                 heightFactor: 2,
                 child: Text('UruBank',
                     textDirection: TextDirection.ltr,
@@ -48,7 +48,7 @@ class _Signup extends State<Signup> {
               TextFormField(
                 controller: _cpf,
                 autofocus: true,
-                style: TextStyle(color: Colors.purple, fontSize: 20),
+                style: const TextStyle(color: Colors.purple, fontSize: 20),
                 decoration: const InputDecoration(
                     icon: Icon(Icons.person),
                     labelText: "Nome completo",
@@ -58,11 +58,11 @@ class _Signup extends State<Signup> {
                   CpfInputFormatter(),
                 ],
               ),
-              Divider(),
+              const Divider(),
               TextFormField(
                 controller: _cpf,
                 autofocus: true,
-                style: TextStyle(color: Colors.purple, fontSize: 20),
+                style: const TextStyle(color: Colors.purple, fontSize: 20),
                 decoration: const InputDecoration(
                     icon: Icon(Icons.person),
                     labelText: "CPF",
@@ -75,7 +75,7 @@ class _Signup extends State<Signup> {
               TextFormField(
                 controller: _cpf,
                 autofocus: true,
-                style: TextStyle(color: Colors.purple, fontSize: 20),
+                style: const TextStyle(color: Colors.purple, fontSize: 20),
                 decoration: const InputDecoration(
                     icon: Icon(Icons.calendar_month),
                     labelText: "Data de nascimento",
@@ -85,24 +85,24 @@ class _Signup extends State<Signup> {
                   CpfInputFormatter(),
                 ],
               ),
-              Divider(),
+              const Divider(),
               TextFormField(
                 autofocus: true,
                 keyboardType: TextInputType.text,
-                style: TextStyle(color: Colors.purple, fontSize: 20),
-                decoration: InputDecoration(
+                style: const TextStyle(color: Colors.purple, fontSize: 20),
+                decoration: const InputDecoration(
                     icon: Icon(Icons.email),
                     labelText: "Email",
                     labelStyle: TextStyle(
                       color: Colors.white,
                     )),
               ),
-              Divider(),
+              const Divider(),
               TextFormField(
                 autofocus: true,
                 keyboardType: TextInputType.text,
-                style: TextStyle(color: Colors.purple, fontSize: 20),
-                decoration: InputDecoration(
+                style: const TextStyle(color: Colors.purple, fontSize: 20),
+                decoration: const InputDecoration(
                     icon: Icon(Icons.phone),
                     labelText: "Telefone",
                     labelStyle: TextStyle(
@@ -113,13 +113,13 @@ class _Signup extends State<Signup> {
                   TelefoneInputFormatter(),
                 ],
               ),
-              Divider(),
+              const Divider(),
               TextFormField(
                 autofocus: true,
                 obscureText: true,
                 keyboardType: TextInputType.text,
-                style: TextStyle(color: Colors.purple, fontSize: 20),
-                decoration: InputDecoration(
+                style: const TextStyle(color: Colors.purple, fontSize: 20),
+                decoration: const InputDecoration(
                     icon: Icon(Icons.visibility_off_rounded),
                     labelText: "Senha",
                     labelStyle: TextStyle(
@@ -143,7 +143,7 @@ class _Signup extends State<Signup> {
               Row(
                 children: [
                   Checkbox(
-                    side: BorderSide(color: Colors.white),
+                    side: const BorderSide(color: Colors.white),
                     value: aceitoTermos,
                     onChanged: (bool) {
                       setState(() {
