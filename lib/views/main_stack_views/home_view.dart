@@ -14,15 +14,16 @@ class _Home extends State<Home> {
     return Scaffold(
       appBar: AppBar(),
       drawer: Drawer(
-        backgroundColor: const Color.fromRGBO(20, 24, 36, 1),
+        backgroundColor: const Color(0xff5F249F),
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
-            const DrawerHeader(
-                decoration: BoxDecoration(
-                  color: Color.fromRGBO(20, 24, 36, 1),
-                ),
-                child: Text('', textAlign: TextAlign.center)),
+            DrawerHeader(
+              decoration: BoxDecoration(
+                color: const Color(0xff9747FF).withOpacity(.25),
+              ),
+              child: const Text('', textAlign: TextAlign.center),
+            ),
             ListTile(
               leading: const Icon(Icons.person),
               iconColor: Colors.white,
@@ -63,20 +64,15 @@ class _Home extends State<Home> {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
-              Row(
-                children: [
-                  Container(
-                    // heightFactor: 2,
-                    child: Text('Olá, Username!',
-                        textDirection: TextDirection.ltr,
-                        textAlign: TextAlign.left,
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.normal,
-                          color: Colors.white,
-                        )),
-                  ),
-                ],
+              const Text(
+                'Olá, Username!',
+                textDirection: TextDirection.ltr,
+                textAlign: TextAlign.left,
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.normal,
+                  color: Colors.white,
+                ),
               ),
               Column(
                 children: [
