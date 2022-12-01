@@ -7,7 +7,6 @@ import 'package:uru_bank/components/inputs.dart';
 import 'package:uru_bank/routes/app_routes.dart';
 import 'package:uru_bank/utils/styles.dart';
 import 'package:uru_bank/utils/validators.dart';
-import 'package:uru_bank/views/auth_stack_views/reset_accountI.dart';
 import 'package:uru_bank/views/main_stack_views/home_view.dart';
 
 Widget formHeader() {
@@ -137,22 +136,20 @@ class _LoginFormState extends State<LoginForm> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(right: 15),
+                padding: const EdgeInsets.only(top: 10, right: 15),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     TextButton(
+                      style: ButtonStyle(
+                          overlayColor: MaterialStateColor.resolveWith(
+                              (states) => Colors.transparent)),
                       child: const Text(
                         "Esqueceu sua senha?",
                         style: TextStyle(color: Colors.white, fontSize: 16),
                       ),
                       onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const RecuperarContaStepI(),
-                          ),
-                        );
+                        Navigator.pushNamed(context, AppRoutes.recover);
                       },
                     ),
                   ],
@@ -349,175 +346,6 @@ class _SignupFormState extends State<SignupForm> {
             ),
           ],
         ),
-        // TextFormField(
-        //   // controller: _cpf,
-        //   autofocus: true,
-        //   style: const TextStyle(color: Colors.purple, fontSize: 20),
-        //   decoration: const InputDecoration(
-        //       icon: Icon(Icons.person),
-        //       labelText: "Nome completo",
-        //       labelStyle: TextStyle(color: Colors.white)),
-        //   validator: (String? value) {
-        //     if (value == null || value.isEmpty) {
-        //       return 'Nome obrigatório';
-        //     }
-        //   },
-        //   inputFormatters: [
-        //     FilteringTextInputFormatter.digitsOnly,
-        //     CpfInputFormatter(),
-        //   ],
-        // ),
-        // const Divider(),
-        // TextFormField(
-        //   // controller: _cpf,
-        //   autofocus: true,
-        //   style: const TextStyle(color: Colors.purple, fontSize: 20),
-        //   decoration: const InputDecoration(
-        //       icon: Icon(Icons.person),
-        //       labelText: "CPF",
-        //       labelStyle: TextStyle(color: Colors.white)),
-        //   validator: (String? value) {
-        //     if (value == null || value.isEmpty) {
-        //       return 'CPF obrigatório';
-        //     }
-        //   },
-        //   inputFormatters: [
-        //     FilteringTextInputFormatter.digitsOnly,
-        //     CpfInputFormatter(),
-        //   ],
-        // ),
-        // TextFormField(
-        //   // controller: _cpf,
-        //   autofocus: true,
-        //   style: const TextStyle(color: Colors.purple, fontSize: 20),
-        //   decoration: const InputDecoration(
-        //       icon: Icon(Icons.calendar_month),
-        //       labelText: "Data de nascimento",
-        //       labelStyle: TextStyle(color: Colors.white)),
-        //   validator: (String? value) {
-        //     if (value == null || value.isEmpty) {
-        //       return 'Data obrigatória';
-        //     }
-        //   },
-        //   inputFormatters: [
-        //     FilteringTextInputFormatter.digitsOnly,
-        //     CpfInputFormatter(),
-        //   ],
-        // ),
-        // const Divider(),
-        // TextFormField(
-        //   autofocus: true,
-        //   keyboardType: TextInputType.text,
-        //   style: const TextStyle(color: Colors.purple, fontSize: 20),
-        //   decoration: const InputDecoration(
-        //       icon: Icon(Icons.email),
-        //       labelText: "Email",
-        //       labelStyle: TextStyle(
-        //         color: Colors.white,
-        //       )),
-        //   validator: (String? value) {
-        //     if (value == null || value.isEmpty) {
-        //       return 'Email obrigatório';
-        //     }
-        //   },
-        // ),
-        // const Divider(),
-        // TextFormField(
-        //   autofocus: true,
-        //   keyboardType: TextInputType.text,
-        //   style: const TextStyle(color: Colors.purple, fontSize: 20),
-        //   decoration: const InputDecoration(
-        //       icon: Icon(Icons.phone),
-        //       labelText: "Telefone",
-        //       labelStyle: TextStyle(
-        //         color: Colors.white,
-        //       )),
-        //   validator: (String? value) {
-        //     if (value == null || value.isEmpty) {
-        //       return 'Telefone obrigatório';
-        //     }
-        //   },
-        //   inputFormatters: [
-        //     FilteringTextInputFormatter.digitsOnly,
-        //     TelefoneInputFormatter(),
-        //   ],
-        // ),
-        // const Divider(),
-        // TextFormField(
-        //   autofocus: true,
-        //   obscureText: true,
-        //   keyboardType: TextInputType.text,
-        //   style: const TextStyle(color: Colors.purple, fontSize: 20),
-        //   decoration: const InputDecoration(
-        //       icon: Icon(Icons.visibility_off_rounded),
-        //       labelText: "Senha",
-        //       labelStyle: TextStyle(
-        //         color: Colors.white,
-        //       )),
-        //   validator: (String? value) {
-        //     if (value == null || value.isEmpty) {
-        //       return 'Senha obrigatória';
-        //     }
-        //   },
-        // ),
-        // const Divider(),
-        // TextFormField(
-        //   autofocus: true,
-        //   obscureText: true,
-        //   keyboardType: TextInputType.text,
-        //   style: const TextStyle(color: Colors.purple, fontSize: 20),
-        //   decoration: const InputDecoration(
-        //       icon: Icon(Icons.visibility_off_rounded),
-        //       labelText: "Confirmar senha",
-        //       labelStyle: TextStyle(
-        //         color: Colors.white,
-        //       )),
-        //   validator: (String? value) {
-        //     if (value == null || value.isEmpty) {
-        //       return 'Senha obrigatória';
-        //     }
-        //   },
-        // ),
-        // const Divider(),
-        // Row(
-        //   children: [
-        //     Checkbox(
-        //       side: const BorderSide(color: Colors.white),
-        //       value: isTermsAccepted,
-        //       onChanged: (bool) {
-        //         setState(() => isTermsAccepted = bool!);
-        //       },
-        //     ),
-        //     const Expanded(
-        //       child: Text(
-        //           'Li e concordo com os termos de condições e politicas de privacidade',
-        //           style: TextStyle(
-        //             color: Colors.white,
-        //           )),
-        //     ),
-        //   ],
-        // ),
-        // const Divider(),
-        // ButtonTheme(
-        //   height: 60,
-        //   child: ElevatedButton(
-        //     style: ButtonStyle(
-        //       minimumSize: MaterialStateProperty.all(const Size(10, 50)),
-        //     ),
-        //     onPressed: () {
-        //       // formKey.currentState?.validate();
-        //     },
-        //     child: const Text(
-        //       "Criar conta",
-        //       style: TextStyle(
-        //         color: Colors.white,
-        //         fontWeight: FontWeight.bold,
-        //       ),
-        //     ),
-        //   ),
-        // )
-        // ],
-        // ),
       ),
     );
   }
