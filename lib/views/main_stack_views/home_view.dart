@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:uru_bank/routes/app_routes.dart';
 import 'package:uru_bank/utils/styles.dart';
 import 'package:uru_bank/views/splash.dart';
 
@@ -89,7 +90,10 @@ class _Home extends State<Home> {
                               height: 40,
                               width: 40,
                               child: InkWell(
-                                onTap: () {},
+                                onTap: () {
+                                  Navigator.pushNamed(
+                                      context, AppRoutes.accountDetails);
+                                },
                                 borderRadius: BorderRadius.circular(50),
                                 child: const Icon(
                                   Icons.arrow_forward_ios_rounded,
@@ -110,6 +114,64 @@ class _Home extends State<Home> {
                             color: Colors.white,
                             fontFamily: "Inter",
                           ),
+                        ),
+                        const Divider(),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Center(
+                              child: Container(
+                                width: 311,
+                                height: 64,
+                                decoration: BoxDecoration(
+                                    border: Border.all(
+                                        color: const Color(0xff262E45),
+                                        width: 5.0,
+                                        style: BorderStyle.solid),
+                                    borderRadius: BorderRadius.circular(4),
+                                    color: const Color(0xff262E45)),
+                                child: const Center(
+                                  child: Text(
+                                    "Transferir",
+                                    textDirection: TextDirection.ltr,
+                                    textAlign: TextAlign.left,
+                                    style: TextStyle(
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w600,
+                                        color: Colors.white,
+                                        fontFamily: "Inter"),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            const Divider(),
+                            Center(
+                              child: Container(
+                                width: 311,
+                                height: 64,
+                                decoration: BoxDecoration(
+                                    border: Border.all(
+                                        color: const Color(0xff262E45),
+                                        width: 5.0,
+                                        style: BorderStyle.solid),
+                                    borderRadius: BorderRadius.circular(4),
+                                    color: const Color(0xff262E45)),
+                                child: const Center(
+                                  child: Text(
+                                    "Depositar",
+                                    textDirection: TextDirection.ltr,
+                                    textAlign: TextAlign.left,
+                                    style: TextStyle(
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w600,
+                                        color: Colors.white,
+                                        fontFamily: "Inter"),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                       ],
                     ),
@@ -253,7 +315,7 @@ class _Home extends State<Home> {
                         ),
                         textColor: Colors.white,
                         onTap: () {
-                          const MaterialPage(child: Splash());
+                          Navigator.pushNamed(context, AppRoutes.login);
                         },
                       ),
                     ],
