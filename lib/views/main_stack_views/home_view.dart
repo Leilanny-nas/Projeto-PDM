@@ -153,7 +153,10 @@ class _Home extends State<Home> {
                                   ),
                                   textColor: Colors.white,
                                   onTap: () {
-                                    Navigator.pop(context);
+                                    Navigator.pushNamed(
+                                      context,
+                                      AppRoutes.accountDetails,
+                                    );
                                   },
                                 ),
                               ),
@@ -340,7 +343,7 @@ class _Home extends State<Home> {
                         ),
                         textColor: Colors.white,
                         onTap: () {
-                          Navigator.pushNamed(context, AppRoutes.login);
+                          Navigator.pushNamed(context, AppRoutes.splash);
                         },
                       ),
                     ],
