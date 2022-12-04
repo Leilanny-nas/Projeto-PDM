@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:uru_bank/routes/app_routes.dart';
 import 'package:uru_bank/utils/styles.dart';
+import 'package:uru_bank/views/auth_stack_views/login.dart';
 import 'package:uru_bank/views/splash.dart';
 
 class Home extends StatefulWidget {
@@ -132,15 +133,28 @@ class _Home extends State<Home> {
                                         style: BorderStyle.solid),
                                     borderRadius: BorderRadius.circular(4),
                                     color: const Color(0xff262E45)),
-                                child: const Text(
-                                  "Transferir",
-                                  textDirection: TextDirection.ltr,
-                                  textAlign: TextAlign.left,
-                                  style: TextStyle(
+                                child: ListTile(
+                                  leading: Image.asset(
+                                    "assets/images/Coin.png",
+                                    width: 30,
+                                  ),
+                                  trailing: const Icon(
+                                    Icons.arrow_forward_ios_rounded,
+                                    color: Colors.white,
+                                    size: 20,
+                                  ),
+                                  iconColor: Colors.white,
+                                  title: const Text(
+                                    'Transferir',
+                                    style: TextStyle(
                                       fontSize: 14,
-                                      fontWeight: FontWeight.w600,
-                                      color: Colors.white,
-                                      fontFamily: "Inter"),
+                                      fontFamily: 'inter',
+                                    ),
+                                  ),
+                                  textColor: Colors.white,
+                                  onTap: () {
+                                    Navigator.pop(context);
+                                  },
                                 ),
                               ),
                             ),
@@ -157,15 +171,28 @@ class _Home extends State<Home> {
                                         style: BorderStyle.solid),
                                     borderRadius: BorderRadius.circular(4),
                                     color: const Color(0xff262E45)),
-                                child: const Text(
-                                  "Depositar",
-                                  textDirection: TextDirection.ltr,
-                                  textAlign: TextAlign.left,
-                                  style: TextStyle(
+                                child: ListTile(
+                                  leading: Image.asset(
+                                    "assets/images/CoinVertical.png",
+                                    width: 30,
+                                  ),
+                                  trailing: const Icon(
+                                    Icons.arrow_forward_ios_rounded,
+                                    color: Colors.white,
+                                    size: 20,
+                                  ),
+                                  iconColor: Colors.white,
+                                  title: const Text(
+                                    'Depositar',
+                                    style: TextStyle(
                                       fontSize: 14,
-                                      fontWeight: FontWeight.w600,
-                                      color: Colors.white,
-                                      fontFamily: "Inter"),
+                                      fontFamily: 'inter',
+                                    ),
+                                  ),
+                                  textColor: Colors.white,
+                                  onTap: () {
+                                    Navigator.pop(context);
+                                  },
                                 ),
                               ),
                             ),
