@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:uru_bank/routes/app_routes.dart';
 import 'package:uru_bank/utils/styles.dart';
-import 'package:uru_bank/views/splash.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -110,7 +109,7 @@ class _Home extends State<Home> {
                           textAlign: TextAlign.left,
                           style: TextStyle(
                             fontSize: 24,
-                            fontWeight: FontWeight.w700,
+                            fontWeight: FontWeight.w600,
                             color: Colors.white,
                             fontFamily: "Inter",
                           ),
@@ -123,12 +122,12 @@ class _Home extends State<Home> {
                             Center(
                               child: Container(
                                 alignment: Alignment.centerLeft,
-                                width: 311,
+                                width: 300,
                                 height: 64,
                                 decoration: BoxDecoration(
                                     border: Border.all(
                                         color: const Color(0xff262E45),
-                                        width: 5.0,
+                                        width: 4.0,
                                         style: BorderStyle.solid),
                                     borderRadius: BorderRadius.circular(4),
                                     color: const Color(0xff262E45)),
@@ -148,12 +147,12 @@ class _Home extends State<Home> {
                             Center(
                               child: Container(
                                 alignment: Alignment.centerLeft,
-                                width: 311,
+                                width: 300,
                                 height: 64,
                                 decoration: BoxDecoration(
                                     border: Border.all(
                                         color: const Color(0xff262E45),
-                                        width: 5.0,
+                                        width: 4.0,
                                         style: BorderStyle.solid),
                                     borderRadius: BorderRadius.circular(4),
                                     color: const Color(0xff262E45)),
@@ -313,7 +312,7 @@ class _Home extends State<Home> {
                         ),
                         textColor: Colors.white,
                         onTap: () {
-                          Navigator.pushNamed(context, AppRoutes.login);
+                          Navigator.pushNamed(context, AppRoutes.splash);
                         },
                       ),
                     ],
