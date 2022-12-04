@@ -122,6 +122,7 @@ class _Home extends State<Home> {
                           children: [
                             Center(
                               child: Container(
+                                alignment: Alignment.centerLeft,
                                 width: 311,
                                 height: 64,
                                 decoration: BoxDecoration(
@@ -131,23 +132,22 @@ class _Home extends State<Home> {
                                         style: BorderStyle.solid),
                                     borderRadius: BorderRadius.circular(4),
                                     color: const Color(0xff262E45)),
-                                child: const Center(
-                                  child: Text(
-                                    "Transferir",
-                                    textDirection: TextDirection.ltr,
-                                    textAlign: TextAlign.left,
-                                    style: TextStyle(
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.w600,
-                                        color: Colors.white,
-                                        fontFamily: "Inter"),
-                                  ),
+                                child: const Text(
+                                  "Transferir",
+                                  textDirection: TextDirection.ltr,
+                                  textAlign: TextAlign.left,
+                                  style: TextStyle(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w600,
+                                      color: Colors.white,
+                                      fontFamily: "Inter"),
                                 ),
                               ),
                             ),
                             const Divider(),
                             Center(
                               child: Container(
+                                alignment: Alignment.centerLeft,
                                 width: 311,
                                 height: 64,
                                 decoration: BoxDecoration(
@@ -157,17 +157,15 @@ class _Home extends State<Home> {
                                         style: BorderStyle.solid),
                                     borderRadius: BorderRadius.circular(4),
                                     color: const Color(0xff262E45)),
-                                child: const Center(
-                                  child: Text(
-                                    "Depositar",
-                                    textDirection: TextDirection.ltr,
-                                    textAlign: TextAlign.left,
-                                    style: TextStyle(
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.w600,
-                                        color: Colors.white,
-                                        fontFamily: "Inter"),
-                                  ),
+                                child: const Text(
+                                  "Depositar",
+                                  textDirection: TextDirection.ltr,
+                                  textAlign: TextAlign.left,
+                                  style: TextStyle(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w600,
+                                      color: Colors.white,
+                                      fontFamily: "Inter"),
                                 ),
                               ),
                             ),
