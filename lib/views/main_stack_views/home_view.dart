@@ -145,6 +145,9 @@ class _Home extends State<Home> {
                                     color: Colors.white,
                                     size: 20,
                                   ),
+                                  onTap: () {
+                                    Navigator.pop(context);
+                                  },
                                   iconColor: Colors.white,
                                   title: const Text(
                                     'Transferir',
@@ -154,12 +157,6 @@ class _Home extends State<Home> {
                                     ),
                                   ),
                                   textColor: Colors.white,
-                                  onTap: () {
-                                    Navigator.pushNamed(
-                                      context,
-                                      AppRoutes.accountDetails,
-                                    );
-                                  },
                                 ),
                               ),
                             ),
@@ -196,7 +193,8 @@ class _Home extends State<Home> {
                                   ),
                                   textColor: Colors.white,
                                   onTap: () {
-                                    Navigator.pop(context);
+                                    Navigator.pushNamed(
+                                        context, AppRoutes.accountDetails);
                                   },
                                 ),
                               ),
