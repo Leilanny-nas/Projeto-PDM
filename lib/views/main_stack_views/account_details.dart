@@ -1,4 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:uru_bank/model/account_model.dart';
+import 'package:uru_bank/model/user_model.dart';
+import 'package:uru_bank/providers/user.dart';
+import 'package:uru_bank/utils/currency_formatter.dart';
+import 'package:uru_bank/utils/styles.dart';
 
 class AccountDetails extends StatefulWidget {
   const AccountDetails({super.key});
@@ -12,34 +18,16 @@ class _AccountDetails extends State<AccountDetails> {
 
   @override
   Widget build(BuildContext context) {
+    UrubankUser? user = Provider.of<UserData>(context).user;
+    Account account = Account.fromJson(user!.account);
+    List<AccountHistory> histories = account.history
+        .map((history) => AccountHistory.fromJson(history))
+        .toList();
+
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
-        automaticallyImplyLeading: false,
         elevation: 0,
-        title: GestureDetector(
-          onTap: () => Navigator.of(context).pop(),
-          child: Row(
-            children: const [
-              Icon(
-                Icons.arrow_back_ios_new_rounded,
-                size: 20,
-              ),
-              Padding(
-                padding: EdgeInsets.only(left: 5),
-                child: Text(
-                  "Voltar",
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w400,
-                    color: Colors.white,
-                    fontFamily: "Inter",
-                  ),
-                ),
-              )
-            ],
-          ),
-        ),
         actions: const [
           Padding(
             padding: EdgeInsets.only(right: 15, top: 20),
@@ -68,43 +56,79 @@ class _AccountDetails extends State<AccountDetails> {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Stack(
-                  children: [
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height * .8,
-                      child: const ClipRRect(
-                        borderRadius: BorderRadius.vertical(
-                          top: Radius.circular(5),
-                          bottom: Radius.circular(5),
+                histories.isEmpty
+                    ? Container(
+                        decoration: BoxDecoration(
+                          color: Styles.appSecondaryBgColor,
+                          borderRadius: BorderRadius.circular(20),
                         ),
-                        child: VerticalDivider(
-                          thickness: 2,
-                          width: 20,
-                          color: Color.fromARGB(255, 138, 33, 250),
+                        padding: const EdgeInsets.all(20),
+                        child: Column(
+                          children: const [
+                            Text(
+                              'Você ainda não tem nenhuma movimentação por aqui',
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.w700,
+                                color: Colors.white,
+                                fontFamily: "Inter",
+                              ),
+                            ),
+                            Divider(),
+                            Text(
+                              'Faça uma transferência, ou receba um pagamento.',
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.w500,
+                                color: Colors.white70,
+                                fontFamily: "Inter",
+                              ),
+                            ),
+                          ],
                         ),
+                      )
+                    : Stack(
+                        children: [
+                          Positioned(
+                            top: 0,
+                            bottom: 0,
+                            child: SizedBox(
+                              height: MediaQuery.of(context).size.height * .8,
+                              child: const ClipRRect(
+                                borderRadius: BorderRadius.vertical(
+                                  top: Radius.circular(5),
+                                  bottom: Radius.circular(5),
+                                ),
+                                child: VerticalDivider(
+                                  thickness: 2,
+                                  width: 20,
+                                  color: Color.fromARGB(255, 138, 33, 250),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Positioned(
+                            child: SizedBox(
+                              height: MediaQuery.of(context).size.height,
+                              child: ListView.builder(
+                                physics: const BouncingScrollPhysics(),
+                                itemCount: histories.length,
+                                itemBuilder: (context, index) {
+                                  AccountHistory history = histories[index];
+
+                                  return HistoricItem(
+                                    date: history.date,
+                                    message: history.message,
+                                    value: formatCurrency(history.value),
+                                    isDebit: history.type ==
+                                        AccountHistoryType.debit,
+                                  );
+                                },
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
-                    ),
-                    Column(
-                      children: const [
-                        Positioned(
-                          child: HistoricItem(
-                            title: "22 Jan",
-                            info: "Transferência DOC para Cláudia Alves",
-                            value: "- 200,00",
-                            isDebit: true,
-                          ),
-                        ),
-                        Positioned(
-                          child: HistoricItem(
-                            title: "29 Nov",
-                            info: "Transferência recebida de Lerani Saraiva",
-                            value: "600,00",
-                          ),
-                        )
-                      ],
-                    ),
-                  ],
-                ),
               ],
             ),
           ),
@@ -115,15 +139,15 @@ class _AccountDetails extends State<AccountDetails> {
 }
 
 class HistoricItem extends StatelessWidget {
-  final String title;
-  final String info;
+  final String date;
+  final String message;
   final String value;
   final bool isDebit;
 
   const HistoricItem({
     Key? key,
-    required this.title,
-    required this.info,
+    required this.date,
+    required this.message,
     required this.value,
     this.isDebit = false,
   }) : super(key: key);
@@ -132,6 +156,7 @@ class HistoricItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 100,
+      width: double.infinity,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -141,8 +166,9 @@ class HistoricItem extends StatelessWidget {
             height: 20,
             margin: const EdgeInsets.only(top: 15),
             decoration: const BoxDecoration(
-                color: Color.fromARGB(255, 156, 71, 247),
-                shape: BoxShape.circle),
+              color: Color.fromARGB(255, 156, 71, 247),
+              shape: BoxShape.circle,
+            ),
           ),
           Expanded(
             flex: 2,
@@ -152,7 +178,7 @@ class HistoricItem extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    title,
+                    date,
                     style: const TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.w500,
@@ -164,11 +190,13 @@ class HistoricItem extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(top: 5),
                     child: Text(
-                      info,
+                      message,
+                      softWrap: true,
+                      maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: const TextStyle(
                         fontSize: 16,
-                        fontWeight: FontWeight.w100,
+                        fontWeight: FontWeight.w400,
                         color: Colors.white70,
                         fontFamily: "Inter",
                         letterSpacing: 1.2,
@@ -183,7 +211,7 @@ class HistoricItem extends StatelessWidget {
             height: double.infinity,
             child: Center(
               child: Text(
-                value,
+                isDebit ? "- $value" : value,
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.w600,
