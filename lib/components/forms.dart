@@ -16,7 +16,6 @@ import 'package:uru_bank/services/firebase_service.dart';
 import 'package:uru_bank/utils/formatted_time.dart';
 import 'package:uru_bank/utils/styles.dart';
 import 'package:uru_bank/utils/validators.dart';
-import 'package:uru_bank/views/main_stack_views/home_view.dart';
 import 'package:provider/provider.dart';
 import 'package:uru_bank/providers/user.dart';
 
