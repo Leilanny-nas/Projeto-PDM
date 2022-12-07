@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 Widget elevatedButton({
   required BuildContext context,
@@ -77,6 +78,37 @@ Widget outlinedButton({
             : icon != null
                 ? Icon(icon)
                 : const Text(""),
+      ),
+    ),
+  );
+}
+
+Widget animatedButton({
+  required BuildContext context,
+  Widget? iconAnimation,
+  double? width,
+  double? height = 55,
+  double? borderRadius,
+  double? padding,
+  Color? color,
+}) {
+  return Card(
+    elevation: 5,
+    color: color ?? Colors.blue.shade400,
+    margin: EdgeInsets.all(padding ?? 0),
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(borderRadius ?? 15),
+    ),
+    child: SizedBox(
+      width: width ?? double.infinity,
+      height: height,
+      child: Center(
+        child: iconAnimation ??
+            Lottie.asset(
+              // AnimatedAsset.loading,
+              "assets/animated/bouncing-balls.json",
+              height: 40,
+            ),
       ),
     ),
   );

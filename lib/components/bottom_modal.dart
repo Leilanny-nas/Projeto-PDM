@@ -1,27 +1,27 @@
 import 'package:flutter/material.dart';
 
-void showBottomModal(
-  BuildContext context, {
-  Widget? child,
-  List<Widget>? children,
-  double? height = 150,
-}) {
+void showBottomModal(BuildContext context,
+    {Widget? child,
+    List<Widget>? children,
+    double? height = 150,
+    double topBorderRadius = 20,
+    Color backgroundColor = const Color.fromARGB(255, 104, 58, 183)}) {
   showModalBottomSheet<void>(
     isScrollControlled: true,
     context: context,
-    shape: const RoundedRectangleBorder(
+    shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.only(
-        topLeft: Radius.circular(20),
-        topRight: Radius.circular(20),
+        topLeft: Radius.circular(topBorderRadius),
+        topRight: Radius.circular(topBorderRadius),
       ),
     ),
     builder: (BuildContext ctx) {
       return Container(
-        decoration: const BoxDecoration(
-          color: Color.fromARGB(255, 104, 58, 183),
+        decoration: BoxDecoration(
+          color: backgroundColor,
           borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(20),
-            topRight: Radius.circular(20),
+            topLeft: Radius.circular(topBorderRadius),
+            topRight: Radius.circular(topBorderRadius),
           ),
         ),
         height: height,

@@ -63,12 +63,13 @@ class _SplashState extends State<Splash> {
                         context: context,
                         callback: () =>
                             Navigator.pushNamed(context, AppRoutes.login),
-                        borderRadius: 5,
+                        borderRadius: 10,
                         height: 18,
                         color: Styles.buttonPrimaryColor,
                         text: "Entrar",
                         textStyle: const TextStyle(
                           color: Color(0xffE1E1E6),
+                          fontSize: 16,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -79,7 +80,7 @@ class _SplashState extends State<Splash> {
                         context: context,
                         callback: () =>
                             Navigator.pushNamed(context, AppRoutes.signup),
-                        borderRadius: 5,
+                        borderRadius: 10,
                         height: 18,
                         color: Colors.transparent,
                         text: "Criar conta",
