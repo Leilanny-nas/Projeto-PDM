@@ -13,23 +13,16 @@ class _Signup extends State<Signup> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-      ),
+      appBar: AppBar(elevation: 0),
       backgroundColor: Styles.appBackgroundColor,
       body: SingleChildScrollView(
-        physics: const ScrollPhysics(
-          parent: BouncingScrollPhysics(
-            parent: AlwaysScrollableScrollPhysics(),
-          ),
-        ),
+        physics: const BouncingScrollPhysics(),
         child: SizedBox(
-          height: MediaQuery.of(context).size.height,
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
-              SignupForm(),
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              formHeader(showOnlyLogo: true, logoHeight: 100),
+              const SignupForm(),
             ],
           ),
         ),

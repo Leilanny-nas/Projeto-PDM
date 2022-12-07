@@ -17,11 +17,7 @@ class LoginState extends State<Login> {
     return Scaffold(
       backgroundColor: Styles.appBackgroundColor,
       body: SingleChildScrollView(
-        physics: const ScrollPhysics(
-          parent: BouncingScrollPhysics(
-            parent: AlwaysScrollableScrollPhysics(),
-          ),
-        ),
+        physics: const BouncingScrollPhysics(),
         child: SizedBox(
           height: MediaQuery.of(context).size.height,
           child: Form(
