@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:uru_bank/components/forms.dart';
-import 'package:uru_bank/model/account_model.dart';
-import 'package:uru_bank/model/user_model.dart';
-import 'package:uru_bank/repositories/account_history.dart';
-import 'package:uru_bank/services/firebase_service.dart';
 
 class SendMoney extends StatefulWidget {
   const SendMoney({super.key});
